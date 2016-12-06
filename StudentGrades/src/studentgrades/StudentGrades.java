@@ -5,6 +5,11 @@
  */
 package studentgrades;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author mehme_000
@@ -13,9 +18,21 @@ public class StudentGrades {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws FileNotFoundException {
+        File sL = new File("StudentLog.txt");
+        Scanner sc = new Scanner(sL);
+        ArrayList<String> SSN = new ArrayList<>();
+        boolean SSNFound = false;
+        
+        while()
+        while(sc.hasNext()){
+            
+            if(sc.hasNextInt() && !SSNFound){
+                SSN = sc.next();
+            }
+        }
     }
     
 }
