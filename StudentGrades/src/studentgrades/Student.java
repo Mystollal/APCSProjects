@@ -16,8 +16,9 @@ public class Student
     private static int numStudents = 0;
     private String lastName, firstName, ssn;
     private int grade;
-    private boolean isFailing;
+    private boolean isPassing;
     private TreeMap<String, Integer> courses = new TreeMap();
+    private Object[] gradeList;
 
     public Student(String lastName, String firstName, String ssn, int grade, String course, int courseGrade)
     {
@@ -53,17 +54,26 @@ public class Student
     { return grade; }
 
     public void setGrade()
-    { this.grade = grade; }
-    
-    public boolean getIsFailing()
-    { return isFailing; }
-    
-    public void setIsFailing()
     { 
-        if (grade < 60)
-            isFailing = true;
+        gradeList = courses.values().toArray();
+        
+        int temp = 0;
+        
+        for (Object o : gradeList)
+            temp += (int)o;
+        
+        grade = temp / gradeList.length;
+    }
+    
+    public boolean setIsFailing()
+    { return isPassing; }
+    
+    public void setIsPassing()
+    { 
+        if (grade > 60)
+            isPassing = true;
         else
-            isFailing = false;
+            isPassing = false;
     }
     
     public static int getNumStudents()
@@ -71,6 +81,16 @@ public class Student
 
     public static void setNumStudents(int aNumStudents)
     { numStudents = aNumStudents; }
+    
+    public void addCourse (String course, int grade)
+    {
+        courses.put(course, grade);
+    }
+    
+    public int getCourseGrade (String course)
+    {
+        return courses.get(course);
+    }
     
     @Override
     protected void finalize()
