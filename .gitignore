@@ -1,1 +1,3 @@
 /StudentGrades/nbproject/private/
+*.properties
+/StudentGrades/build/

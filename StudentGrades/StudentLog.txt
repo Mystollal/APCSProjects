@@ -1,11 +1,23 @@
-Joe Bob    Sally        123-45-6789    11        AP Comp Sci    100
-Joe Bob    Sally        123-45-6789    11        AP Calc BC    100
-Joe Bob    Sally        123-45-6789    11        AP Physics    100
+Joe Bob,	Sally,		123-45-6789,	11,		AP Comp Sci,	100,
+Joe Bob,	Sally,		123-45-6789,	11,		AP Calc BC,	100,
+Joe Bob,	Sally,		123-45-6789,	11,		AP Physics,	100,
 
-Cakulev    Phil        222-33-4321    11        AP Comp Sci    45
-Cakulev    Phil        222-33-4321    11        AP Calc BC    51
-Cakulev    Phil        222-33-4321    11        AP Physics    37
+Cakulev,	Phil,		222-33-4321,	11,		AP Comp Sci,	45,
+Cakulev,	Phil,		222-33-4321,	11,		AP Calc BC,	51,
+Cakulev,	Phil,		222-33-4321,	11,		AP Physics,	37,
 
-Stack        Trevor        262-33-8321    12        Ice Melting    78
-Stack        Trevor        262-33-8321    12        Paint drying    82
-Stack        Trevor        262-33-8321    12        Stamp Licking    90
+Stack,		Trevor,		262-33-8321,	12,		Ice Melting,	78,
+Stack,		Trevor,		262-33-8321,	12,		Paint drying,	82,
+Stack,		Trevor,		262-33-8321,	12,		Stamp Licking,	90,
+
+Chalnick,	Aidan,		420-69-1234,	11,		AP Comp Sci,	72,	
+Chalnick,	Aidan,		420-69-1234,	11,		AP Chemistry,	69,
+Chalnick,	Aidan,		420-69-1234,	11,		Sewing,		98,
+
+Chen,		James,		123-34-5638,	11,		Acc Comp Sci 3,	90,
+Chen,		James,		123-34-5638,	11,		Pre-Calc CPA,	94,
+Chen,		James,		123-34-5638,	11,		Acc Chemistry,	72,
+
+Moss,		Jon,		111-42-7385,	11,		AP Comp Sci,	100,
+Moss,		Jon,		111-42-7385,	11,		AP Chemistry,	100,
+Moss,		Jon,		111-42-7385,	11,		AP Calculus,	100,	
