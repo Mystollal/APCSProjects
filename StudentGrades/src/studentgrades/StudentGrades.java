@@ -48,10 +48,42 @@ public class StudentGrades {
         Student[] sArr= s.toArray(new Student[s.size()]);
         SortAll.selectionSort(sArr);
         
+        int sFail = 0;
+        int temp = 0;
+       
         for(Student i : sArr){
-            i.calcAvg();
-            i.calcLetter();
             System.out.println(i);
+            if(i.getGrade() < 60){
+                sFail ++;
+            }
+            temp += i.getGrade();
+        }
+        
+        System.out.println("School average: " + temp / sArr.length);
+        System.out.println("School size: " + sArr.length);
+        System.out.println("Failing students: " + sFail);
+        
+        for(int i = 9; i <= 12; i++){
+            sFail = 0;
+            temp = 0;
+            ArrayList<Student> sGrade = new ArrayList<>();
+            for(int j = 0; j < sArr.length; j++){
+                if(j==0)
+                    System.out.println("Year " + i);
+                if(sArr[j].getYear() == i){
+                    sGrade.add(sArr[j]);
+                    if(sArr[j].getGrade() < 60){
+                        sFail ++;
+                    }
+                    temp += sArr[j].getGrade();
+                }
+            }
+        if (sGrade.isEmpty())
+            System.out.println("School average: " + temp);
+        else
+            System.out.println("School average: " + temp / sGrade.size());
+        System.out.println("School size: " + sGrade.size());
+        System.out.println("Failing students: " + sFail);
         }
     }
     

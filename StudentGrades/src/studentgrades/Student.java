@@ -144,6 +144,8 @@ public class Student implements Comparable<Student>
     
     @Override
     public String toString(){
+        this.calcAvg();
+        this.calcLetter();
         return year + "th grader " + firstName + " " + lastName + " has a " + letterGrade + " with an average of " + grade;
     }
 }
