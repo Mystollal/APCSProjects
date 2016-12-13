@@ -2,4 +2,3 @@
 *.properties
 /StudentGrades/build/
 /BankingTransaction/nbproject/private/
-/BankingTransaction/build/
