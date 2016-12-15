@@ -17,7 +17,8 @@ public class BankingTransaction {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Calendar cal = Calendar.getInstance();
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the bank of AnshulKamath, today's date is "
@@ -27,5 +28,5 @@ public class BankingTransaction {
         System.out.println("Please input your pin: ");
         int pin = sc.nextInt();
     }
-    
+
 }

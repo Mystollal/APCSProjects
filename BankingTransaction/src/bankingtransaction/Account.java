@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package bankingtransaction;
-
-import java.util.Calendar;
-import java.util.Scanner;
+package bankaccount;
 
 /**
  *
@@ -16,11 +14,15 @@ import java.util.Scanner;
 public class Account
 {
     private int ID, pin;
+    private double amount;
+    private PrintWriter printFile = new PrintWriter(new File("TransactinoHist.txt"));
+    private Scanner scanFile = new Scanner(new File("TransactinoHist.txt"));
 
-    public Account (int ID, int pin)
+    public Account (int ID, int pin, double amt)
     {
        this.ID = ID;
        this.pin = pin;
+       this.amount = amt;
     }
 
   	public int getID()
@@ -34,5 +36,10 @@ public class Account
 
   	public void setPin(int pin)
     {	this.pin = pin; }
+
+    public void addTransaction()
+    {
+
+    }
 
 }
