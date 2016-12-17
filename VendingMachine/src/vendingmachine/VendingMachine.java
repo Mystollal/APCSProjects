@@ -46,7 +46,7 @@ public class VendingMachine
     
     public String getInventory()
     {
-        String complex = "";
+        String complex = "\n";
         
         for (int i = 0; i < numDrinks.length; i++)
             complex += "There are " + numDrinks[i] + " " + drinks[i] + "s left in the vending machine. \n";
@@ -59,7 +59,7 @@ public class VendingMachine
         if (amt < 0)
             return;
         else
-            mVal = amt;
+            mVal += amt;
     }
     
     public String refresh()
@@ -74,12 +74,15 @@ public class VendingMachine
         numDrinks[drinkIndex] = AMOUNT_FOR_RESTOCK;
     }
     
-    public void purchase(int drinkIndex)
+    public String purchase(String drink)
     {
+        int drinkIndex = getDrinkIndex(drink);
+        
         if (mVal >= 1.25)
         {
             numDrinks[drinkIndex]--;
-            prompt = "Here is your " + drinks[drinkIndex] + ". Your change is $" + (mVal -= 1.25) + ". Have a nice day!";
+            prompt = "Here is your " + drinks[drinkIndex] + ". Here is your change of $" + (mVal - 1.25) + ". Have a nice day!";
+            mVal = 0;
         }
         else
         {
@@ -89,6 +92,8 @@ public class VendingMachine
         
         if (!checkInventory(drinkIndex))
             restock(drinkIndex);
+        
+        return prompt;
     }
     
     
