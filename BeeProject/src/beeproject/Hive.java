@@ -15,6 +15,7 @@ public class Hive
 {
     ArrayList<Location> debris = new ArrayList();
     ArrayList<Location> hive = new ArrayList();
+    ArrayList<Bee> bees = new ArrayList();
     
     public Hive(int cube)
     {

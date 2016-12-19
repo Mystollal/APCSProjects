@@ -16,8 +16,10 @@ public class Bee
     private Location loc;
     private int numMoves;
 
-    public Bee(int beeNum, Location loc)
+    public Bee(int beeNum, Location loc) throws Exception
     {
+        if (numBees > 15)
+            throw new Exception("There are too many bees!!!");
         this.beeID = beeNum;
         this.loc = loc;
         numMoves = 0;
