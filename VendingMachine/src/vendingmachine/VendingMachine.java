@@ -14,8 +14,8 @@ public class VendingMachine
     // Drink array: 0 - Water, 1 - Fanta, 2 - Coke, 3 - Sprite, 4 - Dr. Pepper
     private int[] numDrinks;
     private String[] drinks;
-    private static final double PRICE_OF_DRINK = 1.25;
-    private static final int AMOUNT_FOR_RESTOCK = 10;
+    private final double PRICE_OF_DRINK;
+    private final int AMOUNT_FOR_RESTOCK;
     private double mVal;
     private String prompt;
     private boolean canBuy;
@@ -28,6 +28,20 @@ public class VendingMachine
         for (int i = 0; i < numDrinks.length; i++)
             numDrinks[i] = 10;
         mVal = 0;
+        PRICE_OF_DRINK = 1.25;
+        AMOUNT_FOR_RESTOCK = 10;
+    }
+    
+    public VendingMachine (String[] drinks, double price, int amt)
+    {
+        this.drinks = drinks;
+        numDrinks = new int[drinks.length];
+        
+        for (int i = 0; i < numDrinks.length; i++)
+            numDrinks[i] = 10;
+        mVal = 0;
+        PRICE_OF_DRINK = price;
+        AMOUNT_FOR_RESTOCK = amt;
     }
     
     private int getDrinkIndex(String drink)
