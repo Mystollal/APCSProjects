@@ -11,5 +11,19 @@ package beeproject;
  */
 public class Bee
 {
+    private int beeID;
+    private static int numBees = 0;
+    private Location loc;
+    private int numMoves;
+
+    public Bee(int beeNum, Location loc)
+    {
+        this.beeID = beeNum;
+        this.loc = loc;
+        numMoves = 0;
+        numBees++;
+    }
+    
+    
     
 }
