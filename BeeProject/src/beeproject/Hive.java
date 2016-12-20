@@ -17,10 +17,16 @@ public class Hive
     ArrayList<Location> debris;
     Location[] hive;
     Bee[] bees = new Bee[15];
+    int size;
+    
+    public Hive ()
+    {
+        
+    }
     
     public Hive(int cube)
     {
-        
+        size = cube;
     }
     
     public void addDebris (Location[] d)
