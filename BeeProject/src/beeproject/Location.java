@@ -9,7 +9,7 @@ package beeproject;
  *
  * @author anshulkamath
  */
-public class Location
+public class Location implements Comparable<Location>
 {
     private int x, y, z;
     
@@ -42,6 +42,16 @@ public class Location
 
     public void setZ(int z) {
         this.z = z;
+    }
+
+    @Override
+    public int compareTo(Location o)
+    {
+        int dX = (o.x - this.x) * (o.x - this.x);
+        int dY = (o.y - this.y) * (o.y - this.y);
+        int dZ = (o.z - this.z) * (o.z - this.z);
+        
+        return (int)(Math.sqrt(dX + dY + dZ));
     }
     
     

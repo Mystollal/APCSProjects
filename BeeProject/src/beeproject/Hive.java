@@ -43,4 +43,19 @@ public class Hive
     {
         bees = b;
     }
+    
+    public Bee getBee(int index)
+    {
+        return bees[index];
+    }
+    
+    public ArrayList<Location> getDebris()
+    {
+        return debris;
+    }
+    
+    public Location[] getHive()
+    {
+        return hive;
+    }
 }
