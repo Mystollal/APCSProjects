@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Hive
 {
     ArrayList<Location> debris = new ArrayList();
-    ArrayList<Location> hive = new ArrayList();
-    ArrayList<Bee> bees = new ArrayList();
+    Location[] hive;
+    Bee[] bees = new Bee[15];
     
     public Hive(int cube)
     {
@@ -27,8 +27,8 @@ public class Hive
         debris.add(d);
     }
     
-    public void addHive (Location h)
+    public void addHive (Location[] h)
     {
-        hive.add(h);
+        hive = h;
     }
 }
