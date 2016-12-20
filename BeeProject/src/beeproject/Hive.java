@@ -22,13 +22,18 @@ public class Hive
         
     }
     
-    public void addDebris (Location d)
+    public void addDebris (ArrayList<Location> d)
     {
-        debris.add(d);
+        debris = d;
     }
     
     public void addHive (Location[] h)
     {
         hive = h;
+    }
+    
+    public void addBees (Bee[] b)
+    {
+        bees = b;
     }
 }
