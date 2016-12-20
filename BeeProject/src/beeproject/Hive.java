@@ -6,6 +6,7 @@
 package beeproject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Hive
 {
-    ArrayList<Location> debris = new ArrayList();
+    ArrayList<Location> debris;
     Location[] hive;
     Bee[] bees = new Bee[15];
     
@@ -22,9 +23,9 @@ public class Hive
         
     }
     
-    public void addDebris (ArrayList<Location> d)
+    public void addDebris (Location[] d)
     {
-        debris = d;
+        debris = new ArrayList<>(Arrays.asList(d));
     }
     
     public void addHive (Location[] h)
