@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class Hive
 {
     ArrayList<Location> debris;
-    Location[] hive;
+    ArrayList<Location> hive;
     Bee[] bees = new Bee[15];
     int size;
     
@@ -34,9 +34,19 @@ public class Hive
         debris = new ArrayList<>(Arrays.asList(d));
     }
     
+    public void addDebris(Location d)
+    {
+        debris.add(d);
+    }
+    
     public void addHive (Location[] h)
     {
-        hive = h;
+        hive = new ArrayList<>(Arrays.asList(h));
+    }
+    
+    public void removeHive(Location h)
+    {
+        hive.remove(h);
     }
     
     public void addBees (Bee[] b)
@@ -54,8 +64,13 @@ public class Hive
         return debris;
     }
     
-    public Location[] getHive()
+    public ArrayList<Location> getHive()
     {
         return hive;
+    }
+    
+    public void toDebris(Location h){
+        removeHive(h);
+        addDebris(h);
     }
 }

@@ -69,7 +69,25 @@ public class BeeProject
         return hive;
     }
     
-    public void algo(Hive h){
+    public void algo(Hive hive){
         
+        for(int i = 0; i < 15; i++){
+            
+            if(!hive.getBee(i).nearDebris(hive.getDebris())){
+                findBestMove();
+            }
+            else{
+                findBestMove();
+            }
+        
+            
+        }
+    }
+    
+    public void nearestHive(Hive hive){
+        for(int i = 0; i < 15; i++){
+            hive.getBee(i).nearestHive(hive);
+            hive.toDebris(hive.getBee(i).getNearestHive());
+        }
     }
 }

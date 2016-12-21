@@ -42,20 +42,20 @@ public class Bee
         return loc.compareTo(debris) <= 2;
     }
     
-    public void nearestHive(ArrayList<Location> hive)
+    public void nearestHive(Hive hive)
     {
         int dist = 1000000000;
         int index = -1;
-        for(int i = 0; i < hive.size(); i++)
+        for(int i = 0; i < hive.getHive().size(); i++)
         {
-            if (loc.compareTo(hive.get(i)) < dist)
+            if (loc.compareTo(hive.getHive().get(i)) < dist)
             {
-                dist = loc.compareTo(hive.get(i));
+                dist = loc.compareTo(hive.getHive().get(i));
                 index = i;
             }
         }
         
-        nearestHive = hive.get(index);
+        nearestHive = hive.getHive().get(index);
     }
     
     public Location getNearestHive()
