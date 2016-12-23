@@ -12,58 +12,40 @@ package vendingmachine;
 public class VendingMachine 
 {
     // Drink array: 0 - Water, 1 - Fanta, 2 - Coke, 3 - Sprite, 4 - Dr. Pepper
-    private int[] numDrinks;
-    private String[] drinks;
-    private final double PRICE_OF_DRINK;
+    private Item[] items;
     private final int AMOUNT_FOR_RESTOCK;
     private double mVal;
     private String prompt;
     private boolean canBuy;
     
-    public VendingMachine (String[] drinks)
+    public VendingMachine (Item[] items)
     {
-        this.drinks = drinks;
-        numDrinks = new int[drinks.length];
+        this.items = items;
         
-        for (int i = 0; i < numDrinks.length; i++)
-            numDrinks[i] = 10;
         mVal = 0;
-        PRICE_OF_DRINK = 1.25;
         AMOUNT_FOR_RESTOCK = 10;
     }
     
-    public VendingMachine (String[] drinks, double price, int amt)
+    public VendingMachine (Item[] items, int amtForRestock)
     {
-        this.drinks = drinks;
-        numDrinks = new int[drinks.length];
+        this.items = items;
         
-        for (int i = 0; i < numDrinks.length; i++)
-            numDrinks[i] = 10;
         mVal = 0;
-        PRICE_OF_DRINK = price;
-        AMOUNT_FOR_RESTOCK = amt;
+        AMOUNT_FOR_RESTOCK = amtForRestock;
     }
     
-    private int getDrinkIndex(String drink)
+    private boolean checkInventory (int index)
     {
-        for (int i = 0; i < drinks.length; i++)
-            if (drink.toLowerCase().equals(drinks[i].toLowerCase()))
-                return i;
-        
-        return -1;
-    }
-    
-    private boolean checkInventory (int drinkIndex)
-    {
-        return numDrinks[drinkIndex] > 0;
+        return items[index].getNum() > 0;
     }
     
     public String getInventory()
     {
         String complex = "\n";
         
-        for (int i = 0; i < numDrinks.length; i++)
-            complex += "There are " + numDrinks[i] + " " + drinks[i] + "s left in the vending machine. \n";
+        for (int i = 0; i < items.length; i++)
+            complex += "There are " + items[i].getNum() + " " + items[i].getName() + "s left in the vending machine. "
+                    + "(Costs $" + items[i].getPrice() + ")" + "\n";
         
         return complex;
     }
@@ -83,19 +65,28 @@ public class VendingMachine
         return "Here is your money: $" + temp;
     }
     
-    public void restock (int drinkIndex)
+    public void restock (int index)
     {
-        numDrinks[drinkIndex] = AMOUNT_FOR_RESTOCK;
+        items[index].setNum(AMOUNT_FOR_RESTOCK);
     }
     
-    public String purchase(String drink)
+    public String purchase(String item)
     {
-        int drinkIndex = getDrinkIndex(drink);
+        int index = 0;
         
-        if (mVal >= 1.25)
+        for (int i = 0; i < items.length; i++)
         {
-            numDrinks[drinkIndex]--;
-            prompt = "Here is your " + drinks[drinkIndex] + ". Here is your change of $" + (mVal - 1.25) + ". Have a nice day!";
+            if (items[i].getName().toLowerCase().equals(item.toLowerCase()))
+            {
+                index = i;
+                break;
+            }
+        }
+        
+        if (mVal >= items[index].getPrice())
+        {
+            items[index].setNum(items[index].getNum() - 1);
+            prompt = "Here is your " + items[index] + ". Here is your change of $" + (mVal - items[index].getPrice()) + ". Have a nice day!";
             mVal = 0;
         }
         else
@@ -104,8 +95,8 @@ public class VendingMachine
         }
             
         
-        if (!checkInventory(drinkIndex))
-            restock(drinkIndex);
+        if (!checkInventory(index))
+            restock(index);
         
         return prompt;
     }

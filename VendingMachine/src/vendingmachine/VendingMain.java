@@ -17,8 +17,17 @@ public class VendingMain
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in).useDelimiter("\n");
-        VendingMachine vend = new VendingMachine(
-                new String[]{"Poland Spring Water", "Coke", "Sprite", "Fanta", "Dr. Pepper"});
+        
+        Item[] items = new Item[]
+        {
+            new Item ("Snicker", 1.25),
+            new Item ("Poland Water", 1.00),
+            new Item ("Coke", 1.50),
+            new Item ("Sprite", 1.25),
+            new Item ("Fruit Snack", 1.25)
+        };
+        
+        VendingMachine vend = new VendingMachine(items);
         
         boolean loop = true;
         
@@ -30,13 +39,13 @@ public class VendingMain
         {
             if (answer == 'y')
             {
-               System.out.println("Please enter the amount of money you are putting in now. (Everything is 1.25)");
-               vend.addMoney(sc.nextDouble());
-               
                System.out.println("Here are our selections:");
                System.out.println(vend.getInventory());
                
-               System.out.println("Please select a drink.");
+               System.out.println("Please enter the amount of money you are putting in now.");
+               vend.addMoney(sc.nextDouble());
+               
+               System.out.println("Please select an item.");
                String ret = vend.purchase(sc.next());
                
                if (ret.endsWith("Please enter more money."))
