@@ -11,7 +11,6 @@ package vendingmachine;
  */
 public class VendingMachine 
 {
-    // Drink array: 0 - Water, 1 - Fanta, 2 - Coke, 3 - Sprite, 4 - Dr. Pepper
     private Item[] items;
     private final int AMOUNT_FOR_RESTOCK;
     private double mVal;

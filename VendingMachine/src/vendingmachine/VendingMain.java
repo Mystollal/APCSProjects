@@ -18,16 +18,14 @@ public class VendingMain
     {
         Scanner sc = new Scanner(System.in).useDelimiter("\n");
         
-        Item[] items = new Item[]
+        VendingMachine vend = new VendingMachine(new Item[]
         {
             new Item ("Snicker", 1.25),
             new Item ("Poland Water", 1.00),
             new Item ("Coke", 1.50),
             new Item ("Sprite", 1.25),
             new Item ("Fruit Snack", 1.25)
-        };
-        
-        VendingMachine vend = new VendingMachine(items);
+        });
         
         boolean loop = true;
         
